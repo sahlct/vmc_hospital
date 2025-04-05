@@ -1,6 +1,10 @@
+'use client' // Required for client-side GSAP animations
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useEffect } from "react"
+import { gsap } from "gsap"
 
 export default function DepartmentsPage() {
   const departments = [
@@ -69,9 +73,44 @@ export default function DepartmentsPage() {
     },
   ]
 
+  // GSAP animation
+  useEffect(() => {
+    gsap.fromTo(
+      ".dept-card",
+      {
+        opacity: 0,
+        y: 50, // Start 50px below (bottom to top)
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".dept-grid",
+          start: "top 80%",
+        },
+      }
+    )
+  }, [])
+
   return (
-    <main className="container mx-auto px-4 md:px-10 md:py-12 py-8">
-      <div className="text-center md:mb-12 mb-8">
+    <main className="container mx-auto px-4 md:px-10 md:py-12 py-8 relative min-h-screen">
+      {/* Background Image */}
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjg3MC10YW5nLTM2XzEuanBn.jpg"
+          alt="Departments background"
+          fill
+          className="object-cover opacity-80 md:object-center object-left"
+          quality={75}
+          priority
+        />
+        <div className="absolute inset-0 bg-gray-100/80"></div>
+      </div>
+
+      <div className="text-center md:mb-12 mb-8 relative z-10">
         <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Departments</h1>
         <div className="w-16 h-1 bg-[#34b3d4] mx-auto mb-6"></div>
         <p className="max-w-2xl mx-auto text-gray-700">
@@ -80,11 +119,11 @@ export default function DepartmentsPage() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10 dept-grid">
         {departments.map((dept) => (
           <div
             key={dept.id}
-            className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
+            className="dept-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
           >
             <div className="relative h-48">
               <Image src={dept.image || "/placeholder.svg"} alt={dept.name} fill className="object-cover" />
@@ -102,4 +141,3 @@ export default function DepartmentsPage() {
     </main>
   )
 }
-

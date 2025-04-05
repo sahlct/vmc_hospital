@@ -19,6 +19,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        lato: ["Lato", 'sans-serif'],
+        noto: ["Noto Sans", 'sans-serif'],
+        ubuntu: ["Ubuntu", 'sans-serif']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
