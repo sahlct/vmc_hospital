@@ -92,7 +92,7 @@ export default function AboutPage() {
         </div>
         <div className="mission-image relative h-[370px] rounded-lg overflow-hidden shadow-lg">
           <Image 
-            src="https://www.cgarchitect.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBenNMQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--aabdb578a7c815ec97e29bcd09518c17023a7cb6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWxZRk1Eb0tjMkYyWlhKN0Jqb01jWFZoYkdsMGVXbGsiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--a140f81341e053a34b77dbf5e04e777cacb11aff/001b51b4.jpg" 
+            src="https://files.yappe.in/place/full/vmc-hospital-6313455.webp" 
             alt="Hospital building" 
             fill 
             className="object-cover" 
